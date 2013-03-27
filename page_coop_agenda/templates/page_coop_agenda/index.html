@@ -1,6 +1,6 @@
 {% load i18n thumbnail %}
 
-
+<div id="coop_agenda">
 {% for event_category, occs in events_by_categories.items %}
     <h3 class="coop_agenda">{% trans "Agenda" %} {{ event_category }}</h3>
         {% for o in occs %}            
@@ -32,5 +32,5 @@
             </div>
         {% endfor %}
 {% endfor %}
-
+</div>
 

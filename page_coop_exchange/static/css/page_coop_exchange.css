@@ -6,17 +6,24 @@
     margin-bottom: 10px;
     box-shadow: 2px 2px 2px #aaa;
     padding: 7px;
+    float: left;
 }
 
 #search_form {
     margin-top: 5px;
+    padding: 0;
 }
 
-.coop_exchange {
+.coop_exchange,
+.coop_exchange_detail {
     border-bottom: 1px solid #ccc;
     float: left;
     margin-bottom: 10px;
     padding-bottom: 10px;
+}
+
+.coop_exchange_detail {
+    border: none;
 }
 
 .coop_exchange .block_img {
@@ -52,7 +59,7 @@
     border-radius: 5px;
     border: 2px solid #f8b133;
     padding: 5px;
-    max-width: 100px;
+    max-width: 120px;
     text-align: center;
     text-shadow: 2px 2px 2px #aaa;
     color: #fff;
@@ -94,4 +101,62 @@
         #fac972,
         #f9b43b
     );
+}
+
+#search_form .search_block,
+#search_form .search_block_bottom {
+    border-bottom: 1px solid #ccc;
+    float: left;
+    padding: 5px;
+    width: 220px;
+}
+
+#search_form .search_block_bottom {
+    border-bottom: none;
+}
+
+#search_form .search_title {
+    font-weight: bold;
+    display: block;
+}
+
+#search_form .label {
+    width: 85px;
+    float: left;
+    line-height: 25px;
+}
+
+#search_form input[type=checkbox] {
+    float: left;
+}
+
+#search_form .search_column {
+    width: 230px;
+    height: 170px;
+    float: left;
+}
+
+#search_form #search_column2,
+#search_form #skills {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+#search_form #search_bottom {
+    border-top: 1px solid #ccc;
+    clear: left;
+}
+
+#search_form #search_submit {
+    background: #fad722;
+    color: #fff;
+}
+
+#search_form #search_submit .nb_results {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#search_form #search_submit #results_block {
+    
 }

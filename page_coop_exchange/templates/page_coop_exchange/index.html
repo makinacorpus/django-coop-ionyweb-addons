@@ -2,14 +2,67 @@
 
 <div id="search_form">
     <form action="{{ base_url }}" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="{% trans "Submit" %}" />
+        <div class="search_column" id="search_column1">
+            <div class="search_block" id="looking_for">
+                <span class="search_title">{% trans "I'm looking for" %}</span>
+                {{ form.type_offer }}<div class="label">{% trans "Offer" %}</div>
+                {{ form.type_request }}<div class="label">{% trans "Request" %}</div>
+            </div>
+            <div class="search_block_bottom" id="type">
+                <span class="search_title">{% trans "Type" %}</span>
+                {{ form.type_product }}<div class="label">{% trans "Product" %}</div>
+                {{ form.type_service }}<div class="label">{% trans "Service" %}</div>
+                {{ form.type_skills }}<div class="label">{% trans "Skills" %}</div>
+                {{ form.type_project }}<div class="label">{% trans "Project" %}</div>
+                {{ form.type_experience }}<div class="label">{% trans "Experience" %}</div>
+            </div>
+        </div>
+        <div class="search_column" id="search_column2">
+            <div class="search_block" id="activity">
+                <span class="search_title">{% trans "Activity" %}</span>
+                {% trans "Experience" %} : {{ form.activity }}
+            </div>
+            <div class="search_block_bottom" id="free_search">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column3">
+            <div class="search_block" id="location">
+                <span class="search_title">{% trans "Location" %}</span>
+                {{ form.location }}
+            </div>
+            <div class="search_block_bottom" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+        </div>
+        <div id="search_bottom">
+            <div class="search_block_bottom" id="mode">
+                <span class="search_title">{% trans "Exchange mode" %}</span>
+                {{ form.mode_gift }}<div class="label">{% trans "Gift" %}</div>
+                {{ form.mode_swap }}<div class="label">{% trans "Swap" %}</div>
+                {{ form.mode_euros }}<div class="label">{% trans "Euros" %}</div>
+                {{ form.mode_mutualization }}<div class="label">{% trans "Mutualization" %}</div>
+            </div>
+            <div class="search_block_bottom" id="skills">
+                <span class="search_title">{% trans "If skills" %}</span>
+                {{ form.skills_voluntary }}<div class="label">{% trans "Voluntary" %}</div>
+                {{ form.skills_training_work }}<div class="label">{% trans "Training work" %}</div>
+                {{ form.skills_job }}<div class="label">{% trans "Job" %}</div>
+                {{ form.skills_training }}<div class="label">{% trans "Training" %}</div>
+            </div>
+            <div class="search_block_bottom" id="search_submit">
+                <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
+                <input type="submit" value="{% trans "Search" %}" />
+            </div>
+        </div>
     </form>
 </div>
 
 
 <div id="result_exchanges">
-<div class="exchanges_pagination">Pagination</div>
+<!-- <div class="exchanges_pagination">Pagination</div> -->
 {% for e in exchanges %}
     <div class="coop_exchange">
         <div class="block_img">
@@ -23,6 +76,6 @@
     </div>
 {% endfor %}
 
-<div class="exchanges_pagination">Pagination</div>
+<!-- <div class="exchanges_pagination">Pagination</div> -->
 </div>
 
