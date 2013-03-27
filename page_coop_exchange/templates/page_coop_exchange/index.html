@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<div id="search_form">
+    <form action="{{ base_url }}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% trans "Submit" %}" />
+    </form>
+</div>
+
+
+<div id="result_exchanges">
+<div class="exchanges_pagination">Pagination</div>
+{% for e in exchanges %}
+    <div class="coop_exchange">
+        <div class="block_img">
+        </div>
+        <div class="block_desc">
+            <div class="exchange_type">{% trans "Type" %} : {{ e.etype }}</div>
+            <div class="exchange_title">{{ e.title }}</div>
+            <div class="exchange_desc">{{ e.description|safe }}</div>
+            <a href="{{ base_url }}p/{{ e.pk }}"><div class="exchange_button_detail">{% trans "Show details" %}</div></a>
+        </div>
+    </div>
+{% endfor %}
+
+<div class="exchanges_pagination">Pagination</div>
+</div>
+
