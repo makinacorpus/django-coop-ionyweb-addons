@@ -4,6 +4,7 @@ from django.template import RequestContext
 from ionyweb.website.rendering.utils import render_view
 
 from coop_local.models import Exchange
+
 from django.conf import settings
 
 from django.shortcuts import get_object_or_404
@@ -26,12 +27,20 @@ def index_view(request, page_app):
 
     if request.method == 'POST': # If the form has been submitted
         form = PageApp_CoopExchangeForm(request.POST)
-        if request.POST['free_search']:
-            exchanges = exchanges.filter(Q(title__contains=request.POST['free_search']) | Q(description__contains=request.POST['free_search']))
+        if form.is_valid():
+            if form.cleaned_data['free_search']:
+                exchanges = exchanges.filter(Q(title__contains=form.cleaned_data['free_search']) | Q(description__contains=form.cleaned_data['free_search']))
+            
+            if form.cleaned_data['type_exchange']:
+                exchanges = exchanges.filter(Q(eway__in=form.cleaned_data['type_exchange']))
+
+            if form.cleaned_data['type']:
+                exchanges = exchanges.filter(Q(etype__in=form.cleaned_data['type']))
+
     else:
         form = PageApp_CoopExchangeForm() # An empty form
 
-    rdict = {'exchanges': exchanges, 'object': page_app, 'base_url': base_url, 'form': form}
+    rdict = {'exchanges': exchanges, 'base_url': base_url, 'form': form}
     
     return render_view('page_coop_exchange/index.html',
                        rdict,

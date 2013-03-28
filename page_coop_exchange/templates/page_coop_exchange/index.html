@@ -5,16 +5,11 @@
         <div class="search_column" id="search_column1">
             <div class="search_block" id="looking_for">
                 <span class="search_title">{% trans "I'm looking for" %}</span>
-                {{ form.type_offer }}<div class="label">{% trans "Offer" %}</div>
-                {{ form.type_request }}<div class="label">{% trans "Request" %}</div>
+                {{ form.type_exchange }}
             </div>
             <div class="search_block_bottom" id="type">
                 <span class="search_title">{% trans "Type" %}</span>
-                {{ form.type_product }}<div class="label">{% trans "Product" %}</div>
-                {{ form.type_service }}<div class="label">{% trans "Service" %}</div>
-                {{ form.type_skills }}<div class="label">{% trans "Skills" %}</div>
-                {{ form.type_project }}<div class="label">{% trans "Project" %}</div>
-                {{ form.type_experience }}<div class="label">{% trans "Experience" %}</div>
+                {{ form.type }}
             </div>
         </div>
         <div class="search_column" id="search_column2">
@@ -40,17 +35,11 @@
         <div id="search_bottom">
             <div class="search_block_bottom" id="mode">
                 <span class="search_title">{% trans "Exchange mode" %}</span>
-                {{ form.mode_gift }}<div class="label">{% trans "Gift" %}</div>
-                {{ form.mode_swap }}<div class="label">{% trans "Swap" %}</div>
-                {{ form.mode_euros }}<div class="label">{% trans "Euros" %}</div>
-                {{ form.mode_mutualization }}<div class="label">{% trans "Mutualization" %}</div>
+                {{ form.mode }}
             </div>
             <div class="search_block_bottom" id="skills">
                 <span class="search_title">{% trans "If skills" %}</span>
-                {{ form.skills_voluntary }}<div class="label">{% trans "Voluntary" %}</div>
-                {{ form.skills_training_work }}<div class="label">{% trans "Training work" %}</div>
-                {{ form.skills_job }}<div class="label">{% trans "Job" %}</div>
-                {{ form.skills_training }}<div class="label">{% trans "Training" %}</div>
+                {{ form.skills }}
             </div>
             <div class="search_block_bottom" id="search_submit">
                 <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
@@ -68,7 +57,7 @@
         <div class="block_img">
         </div>
         <div class="block_desc">
-            <div class="exchange_type">{% trans "Type" %} : {{ e.etype }}</div>
+            <div class="exchange_type">{% trans "Type" %} : {{ e.get_eway_display }}</div>
             <div class="exchange_title">{{ e.title }}</div>
             <div class="exchange_desc">{{ e.description|safe }}</div>
             <a href="{{ base_url }}p/{{ e.pk }}"><div class="exchange_button_detail">{% trans "Show details" %}</div></a>

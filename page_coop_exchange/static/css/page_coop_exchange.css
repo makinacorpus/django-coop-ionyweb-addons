@@ -136,6 +136,29 @@
     float: left;
 }
 
+#search_form #search_column1 {
+    width: 270px;
+}
+
+#search_form #search_column1 .search_block,
+#search_form #search_column1 .search_block_bottom {
+    width: 260px;
+}
+
+
+#search_form #search_column2,
+#search_form #search_column3 {
+    width: 210px;
+}
+#search_form #search_column2 .search_block,
+#search_form #search_column2 .search_block_bottom,
+#search_form #search_column3 .search_block,
+#search_form #search_column3 .search_block_bottom {
+    width: 200px;
+}
+
+
+
 #search_form #search_column2,
 #search_form #skills {
     border-left: 1px solid #ccc;
@@ -159,4 +182,12 @@
 
 #search_form #search_submit #results_block {
     
+}
+
+#search_form ul {
+    list-style: none;
+    margin: 0;
+}
+#search_form ul li {
+    float: left;
 }
