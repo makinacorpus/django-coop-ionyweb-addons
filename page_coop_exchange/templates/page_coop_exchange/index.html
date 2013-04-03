@@ -1,5 +1,6 @@
 {% load i18n %}
 
+<div id="exchanges_top"></div>
 <div id="search_form">
     <form action="{{ base_url }}" method="post">{% csrf_token %}
         <div class="search_column" id="search_column1">
@@ -50,7 +51,9 @@
 </div>
 
 
+<div id="exchanges_top"></div>
 <div id="result_exchanges">
+
 <!-- <div class="exchanges_pagination">Pagination</div> -->
 {% for e in exchanges %}
     <div class="coop_exchange">

@@ -39,7 +39,13 @@ def index_view(request, page_app):
 
     else:
         form = PageApp_CoopExchangeForm() # An empty form
-
+        # TODO: temporary
+        form.fields['activity'].widget.attrs['readonly'] = True
+        form.fields['location'].widget.attrs['readonly'] = True
+        form.fields['thematic'].widget.attrs['readonly'] = True
+        form.fields['mode'].widget.attrs['disabled'] = True
+        form.fields['skills'].widget.attrs['disabled'] = True
+    
     rdict = {'exchanges': exchanges, 'base_url': base_url, 'form': form}
     
     return render_view('page_coop_exchange/index.html',
