@@ -35,10 +35,17 @@
 .member .member_desc,
 .member .member_link,
 .member .member_address,
-.member .member_email {
+.member .member_email,
+.member .member_location {
     margin-left: 100px;
 }
 
 .member .member_acronym {
     color: #ccc;
+}
+
+.member .member_location #leaflet_map {
+    height: 350px;
+    width: 500px;
+    border: 1px solid #ccc;
 }

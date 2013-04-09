@@ -25,7 +25,8 @@ def index_view(request, page_app):
 
     exchanges = Exchange.objects.all()
 
-    if request.method == 'POST': # If the form has been submitted
+    if request.method == 'POST': # If the form has been submitted        
+        # TODO: other filters
         form = PageApp_CoopExchangeForm(request.POST)
         if form.is_valid():
             if form.cleaned_data['free_search']:
@@ -39,14 +40,10 @@ def index_view(request, page_app):
 
     else:
         form = PageApp_CoopExchangeForm() # An empty form
-        # TODO: temporary
-        form.fields['activity'].widget.attrs['readonly'] = True
-        form.fields['location'].widget.attrs['readonly'] = True
-        form.fields['thematic'].widget.attrs['readonly'] = True
-        form.fields['mode'].widget.attrs['disabled'] = True
-        form.fields['skills'].widget.attrs['disabled'] = True
     
-    rdict = {'exchanges': exchanges, 'base_url': base_url, 'form': form}
+    center_map = settings.COOP_MAP_DEFAULT_CENTER
+    
+    rdict = {'exchanges': exchanges, 'base_url': base_url, 'form': form, 'center': center_map}
     
     return render_view('page_coop_exchange/index.html',
                        rdict,
